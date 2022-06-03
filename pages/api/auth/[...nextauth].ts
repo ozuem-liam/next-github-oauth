@@ -9,8 +9,8 @@ export default NextAuth({
         })
     ],
     pages: {
-        signIn: 'auth/signin',
-        signOut: 'auth/signout',
+        signIn: '/',
+        signOut: '/',
         error: '/api/auth/error', // Error code passed in query string as ?error=
     },
     callbacks: {
