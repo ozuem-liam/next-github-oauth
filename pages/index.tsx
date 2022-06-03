@@ -15,7 +15,14 @@ async function fetcher(args: any) {
 const Home: NextPage = () => {
   const { data: session } = useSession()
   const { data } = useSWR('/api/github', fetcher)
-  console.log('touvh', data)
+  
+  const sign = () => {
+    try {
+      signIn();
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +32,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {!session && (<button onClick={() => signIn()} className={styles.signin}>Sign in with GitHub</button>)}
+        {!session && (<button onClick={sign} className={styles.signin}>Sign in with GitHub</button>)}
         {session && (
           <>
             <Image alt="profile" src={`${session?.user?.image}`} width={100} height={100} className={styles.img} />

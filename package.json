@@ -1,6 +1,7 @@
 {
   "name": "next-github-oauth",
   "version": "0.1.0",
+  "proxy": "https://next-github-oauth.vercel.app/",
   "private": true,
   "scripts": {
     "dev": "next dev",

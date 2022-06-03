@@ -12,5 +12,24 @@ export default NextAuth({
         async session({ session }) {
           return session
         },
+    },
+    cookies: {
+        sessionToken: {
+          name: `__Secure-next-auth.session-token`,
+          options: {
+            httpOnly: true,
+            sameSite: 'lax',
+            path: '/',
+            secure: true
+          }
+        },
+        callbackUrl: {
+          name: `__Secure-next-auth.callback-url`,
+          options: {
+            sameSite: 'lax',
+            path: '/api/auth/callback/github',
+            secure: true
+          }
+        },
     }
 });
