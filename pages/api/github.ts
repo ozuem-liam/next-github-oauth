@@ -25,7 +25,7 @@ export default async function handler(
   const session = await getSession({ req })
   if (session) {
   const octokit = new Octokit({
-      auth: process.env.GITHUB_AUTH_TOKEN
+      auth: process.env.NEXT_PUBLIC_GITHUB_AUTH_TOKEN
   })
   const resp = await octokit.request('GET /user', {})
   if(resp) {
