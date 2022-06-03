@@ -8,11 +8,6 @@ export default NextAuth({
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
         })
     ],
-    callbacks: {
-        async session({ session }) {
-          return session
-        },
-    },
     cookies: {
         sessionToken: {
           name: `__Secure-next-auth.session-token`,
