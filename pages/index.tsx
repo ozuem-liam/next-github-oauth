@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {!session && (<button onClick={() => signIn('github')} className={styles.signin}>Sign in with GitHub</button>)}
+        {!session && (<button onClick={() => signIn()} className={styles.signin}>Sign in with GitHub</button>)}
         {session && (
           <>
             <Image alt="profile" src={`${session?.user?.image}`} width={100} height={100} className={styles.img} />
