@@ -16,13 +16,6 @@ const Home: NextPage = () => {
   const { data: session } = useSession()
   const { data } = useSWR('/api/github', fetcher)
   
-  const sign = () => {
-    try {
-      signIn();
-    } catch (err) {
-      console.log(err)
-    }
-  }
   return (
     <div className={styles.container}>
       <Head>
@@ -32,7 +25,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {!session && (<button onClick={sign} className={styles.signin}>Sign in with GitHub</button>)}
+        {!session && (<button className={styles.signin} 
+          onClick={(e) => {
+            e.preventDefault()
+            signIn()
+          }}>Sign in with GitHub</button>)}
         {session && (
           <>
             <Image alt="profile" src={`${session?.user?.image}`} width={100} height={100} className={styles.img} />

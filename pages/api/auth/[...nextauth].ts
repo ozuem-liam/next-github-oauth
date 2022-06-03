@@ -8,23 +8,4 @@ export default NextAuth({
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
         })
     ],
-    cookies: {
-        sessionToken: {
-          name: `__Secure-next-auth.session-token`,
-          options: {
-            httpOnly: true,
-            sameSite: 'lax',
-            path: '/',
-            secure: true
-          }
-        },
-        callbackUrl: {
-          name: `__Secure-next-auth.callback-url`,
-          options: {
-            sameSite: 'lax',
-            path: '/api/auth/callback/github',
-            secure: true
-          }
-        },
-    }
 });
