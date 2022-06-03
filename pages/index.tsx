@@ -12,6 +12,7 @@ async function fetcher(args: any) {
 
   return res.json()
 }
+
 const Home: NextPage = () => {
   const { data: session } = useSession()
   const { data } = useSWR('/api/github', fetcher)
