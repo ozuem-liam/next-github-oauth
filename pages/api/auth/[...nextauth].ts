@@ -8,11 +8,6 @@ export default NextAuth({
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
         })
     ],
-    pages: {
-        signIn: '/',
-        signOut: '/',
-        error: '/api/auth/error', // Error code passed in query string as ?error=
-    },
     callbacks: {
         async session({ session }) {
           return session
